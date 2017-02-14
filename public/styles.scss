@@ -1,6 +1,6 @@
 @mixin horizontal-center($margin: auto) {
   margin: $margin;
-  width: 50%;
+  width: 100%;
   text-align: center;
 }
 
@@ -18,19 +18,23 @@
   height: $height;
 }
 
-@mixin font($font: 18px) {
+@mixin font($font: 14px) {
   font: $font helvetica, sans-serif;
 }
+
+/* body */
 
 html, body {
   @include full-div();
   overflow: hidden;
   color: silver;
-  background: url("background.jpg") no-repeat center center fixed;
+  background: url("background2.gif") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
 }
+
+/* navigation */
 
 #nav {
   @include horizontal-center();
@@ -49,6 +53,15 @@ html, body {
 
       &:hover {
         cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    #resume {
+      text-decoration: none;
+      color: silver;
+      &:hover {
+        text-decoration: underline;
       }
     }
 
@@ -57,6 +70,12 @@ html, body {
     }
   }
 }
+
+.activeNav {
+  text-decoration: underline;
+}
+
+/* main */
 
 #main {
   @include full-div();
@@ -67,8 +86,6 @@ html, body {
     @include vertical-center(relative, 40%);
     font-weight: bold;
     line-height: 0.7;
-    margin-bottom: 0;
-    padding-bottom: 0;
   }
 
   #name {
@@ -76,6 +93,68 @@ html, body {
     @include vertical-center(relative, 40%);
     font: 24px "lobster two", cursive;
     opacity: 0.7;
+    line-height: 3.5;
+  }
 
+  #aboutMe {
+    @include horizontal-center();
+    @include vertical-center(relative, 40%);
+    @include font(16px);
+    width: 43%
+  }
+
+  #contactMe {
+    @include horizontal-center();
+    @include vertical-center(relative, 40%);
+    a {
+      @include font(16px);
+      text-decoration: none;
+      color: silver;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* footer */
+
+footer {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 70px;
+  width: 100%;
+  padding: 5px;
+}
+
+html footer { /* IE 6 */
+  position:absolute;
+  top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+#social {
+  @include horizontal-center();
+  ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+
+    li {
+      display: inline;
+      margin: 15px;
+      padding: 10px;
+    }
+  }
+}
+
+img {
+  height: 50px;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
   }
 }

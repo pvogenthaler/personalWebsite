@@ -1,21 +1,67 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>paigevogenthaler.com</title>
+    <title>Paige Vogenthaler | Developer</title>
     <link rel="stylesheet" href="styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>  </head>
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <script>
+    $(document).ready(function() {
+      $("#home").addClass("activeNav");
+      $("#nav li").click(function() {
+        $("#nav li").removeClass("activeNav");
+        $(this).addClass("activeNav");
+      })
+
+      $("li").click(function() {
+        if ( $(this).text() !== "ABOUT" ) {
+          $("#aboutMe").fadeOut("fast");
+        }
+        if ( $(this).text() !== "CONTACT" ) {
+          $("#contactMe").fadeOut("fast");
+        }
+      })
+
+      $("#about").click(function() {
+        if ( $("#aboutMe:hidden") ) {
+          $("#aboutMe").fadeIn("slow");
+        }
+      })
+
+      $("#contact").click(function() {
+        if ( $("contactMe:hidden") ) {
+          console.log('contact')
+          $("#contactMe").fadeIn("slow");
+        }
+      })
+    })
+    </script>
+
+  </head>
   <body>
-    <div id="nav">
+    <header id="nav">
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Resume</li>
-        <li id="contact">Contact</li>
-    </div>
+        <li id="home">HOME</li>
+        <li id="about">ABOUT</li>
+        <li><a id="resume" href="Vogenthaler_Resume.pdf" target="_blank">RESUME</a></li>
+        <li id="contact">CONTACT</li>
+    </header>
     <div id="main">
       <h1 id="dev">DEVELOPER.</h1>
       <h3 id="name">Paige Vogenthaler</h3>
+      <p id="aboutMe" hidden>
+        I'm passionate about coding because it's the perfect combination of creative and analytical thinking. I'm interested in developing clean, maintainable, and scalable code, and I thrive in team oriented and results driven environments. In my spare time, I enjoy exploring the newest frameworks and technologies, and problem solving with algorithms.
+      </p>
+      <p id="contactMe" hidden><a href="mailto:pvogenthaler@gmail.com">paige.vogenthaler@gmail.com</a>
+      </p>
     </div>
+    <footer id ="social">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/pvogenthaler/" target="_blank"><img src="linkedin.png"></a>
+        <li><a href="https://www.github.com/pvogenthaler/" target="_blank"><img src="github.png"></a>
+        <li><a href="https://www.facebook.com/pvogenthaler/" target="_blank"><img src="facebook.png"></a>
+      </ul>
+    </footer>
   </body>
-
 </html>
