@@ -1,0 +1,81 @@
+@mixin horizontal-center($margin: auto) {
+  margin: $margin;
+  width: 50%;
+  text-align: center;
+}
+
+@mixin vertical-center($position: relative, $top: 50%) {
+  position: $position;
+  top: $top;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin full-div($height: 100%) {
+  margin: 0;
+  padding: 0;
+  height: $height;
+}
+
+@mixin font($font: 18px) {
+  font: $font helvetica, sans-serif;
+}
+
+html, body {
+  @include full-div();
+  overflow: hidden;
+  color: silver;
+  background: url("background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+#nav {
+  @include horizontal-center();
+
+  ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    font-size: 18px;
+
+    li {
+      display: inline;
+      margin: 15px;
+      padding: 10px;
+      @include font();
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    #contact {
+      border: 3px solid silver;
+    }
+  }
+}
+
+#main {
+  @include full-div();
+
+  #dev {
+    @include font(72px);
+    @include horizontal-center();
+    @include vertical-center(relative, 40%);
+    font-weight: bold;
+    line-height: 0.7;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #name {
+    @include horizontal-center();
+    @include vertical-center(relative, 40%);
+    font: 24px "lobster two", cursive;
+    opacity: 0.7;
+
+  }
+}
