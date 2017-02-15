@@ -3,21 +3,15 @@
   width: 100%;
   text-align: center;
 }
-
 @mixin vertical-center($position: relative, $top: 50%) {
   position: $position;
   top: $top;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
-
 @mixin full-div($height: 100%) {
   margin: 0;
   padding: 0;
   height: $height;
 }
-
 @mixin font($font: 14px) {
   font: $font helvetica, sans-serif;
 }
@@ -32,37 +26,40 @@ html, body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  -webkit-text-size-adjust: 100%;
 }
 
-@media screen and (max-device-width: 480px){
-  body{
-    -webkit-text-size-adjust: none;
-  }
+/* iPhone, portrait & landscape. */
+@media (min-device-width: 320px) {
+  html, body { -webkit-text-size-adjust: 225%; }
 }
 
 /* navigation */
 
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
 #nav {
   @include horizontal-center();
-
   ul {
     list-style-type: none;
-    margin: 10px;
     padding: 10px;
     font-size: 18px;
-
     li {
       display: inline;
       margin: 15px;
       padding: 10px;
       @include font();
-
       &:hover {
         cursor: pointer;
         text-decoration: underline;
       }
     }
-
     #resume {
       text-decoration: none;
       color: silver;
@@ -70,7 +67,6 @@ html, body {
         text-decoration: underline;
       }
     }
-
     #contact {
       border: 3px solid silver;
     }
@@ -84,34 +80,25 @@ html, body {
 /* main */
 
 #main {
-  @include full-div();
-
+  @include horizontal-center();
+  @include vertical-center(relative, 35%);
   #dev {
     @include font(72px);
-    @include horizontal-center();
-    @include vertical-center(relative, 40%);
     font-weight: bold;
-    line-height: 0.7;
+    margin-bottom: 0;
   }
-
   #name {
-    @include horizontal-center();
-    @include vertical-center(relative, 40%);
     font: 24px "lobster two", cursive;
     opacity: 0.7;
-    line-height: 3.5;
+    margin-top: 10px;
   }
-
   #aboutMe {
-    @include horizontal-center();
-    @include vertical-center(relative, 40%);
     @include font(16px);
-    width: 43%
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
   }
-
   #contactMe {
-    @include horizontal-center();
-    @include vertical-center(relative, 40%);
     a {
       @include font(16px);
       text-decoration: none;
