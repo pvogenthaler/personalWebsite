@@ -93,14 +93,14 @@ header {
     margin-top: 10px;
   }
   #aboutMe {
-    @include font(16px);
+    @include font(18px);
     width: 70%;
     margin: auto;
     margin-top: 20px;
   }
   #contactMe {
     a {
-      @include font(16px);
+      @include font(18px);
       text-decoration: none;
       color: silver;
       &:hover {
