@@ -14,7 +14,7 @@ html, body {
 /* iPhone, portrait & landscape. */
 @media (min-device-width: 320px) {
   html, body {
-    -webkit-text-size-adjust: 225%; } }
+    -webkit-text-size-adjust: 150%; } }
 /* navigation */
 header {
   position: fixed;
