@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+  (function() {
+    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = 'myfavicon.ico';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  }());
+
+
   $("#home").addClass("activeNav");
   $("#nav li").click(function() {
     $("#nav li").removeClass("activeNav");
